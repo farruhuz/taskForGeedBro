@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const BASE_URL = "http://vr.rudi.uz";
+const BASE_URL = "https://vr.rudi.uz";
 const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQzMjI3MDh9.0CPXVCCK3XiYDlv7vQiOEmfMSTj3VqJpBIBCPp-GDsg";
 
 const moviesApi = createApi({
