@@ -1,29 +1,26 @@
 "use client"
-import { useGetMoviesQuery } from "@/api/moviesApi";
-import { useState } from "react";
+import MovieCard from './MovieCard';
+import { useDispatch } from 'react-redux';
+import { useRouter } from "next/navigation";
+import { movieActions } from '../redux/movieSlice';
 
-const MovieList = () => {
-  const [page, setPage] = useState(1);
-  const [items, setItems] = useState(4);
-  const { data, isFetching } = useGetMoviesQuery({ page, items });
-
-  if (isFetching) return <div>Loading...</div>;
-  console.log(data);
-
+const MoviesList = ({ movies }) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const onGetMovieHandler = (movie) => {
+    dispatch(movieActions.getMovie(movie))
+    router.push(`/movies/${movie.id}`)
+  }
   return (
-    <div>
-      <h1>Movies List</h1>
-      <div className="movie-list">
-        {data?.movies?.map((movie) => (
-          <div key={movie.id} className="movie-card">
-            <img src={movie.poster} alt={movie.title} />
-            <h2>{movie.title}</h2>
-            <p>{movie.year}</p>
-          </div>
-        ))}
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-5 md:grid-cols-5 gap-4">
+      {movies.map((movie) => (
+        <div onClick={() => onGetMovieHandler(movie)} key={movie.id}>
+          <MovieCard movie={movie} />
+        </div>
+      ))}
     </div>
   );
-}
+};
 
-export default MovieList
+export default MoviesList;
+
