@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const BASE_URL = "https://vr2.rudi.uz";
-const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQzMjI3MDh9.0CPXVCCK3XiYDlv7vQiOEmfMSTj3VqJpBIBCPp-GDsg";
+const API_KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ4OTY1MDN9.ZNWMKN-ACvqM-QiElV9Ky6lAa_9gOX3vKWpIEPMn-g4";
 
 const moviesApi = createApi({
   reducerPath: 'moviesApi',
